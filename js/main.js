@@ -20,6 +20,10 @@ var vm = new Vue({
       { name: "Stranger Things", thumb: "strangerthings.jpg", vidsource: "strangerthings.mp4", description: "don't get lost in the upside down" },
       { name: "Marvel's The Avengers", thumb: "avengers.jpg", vidsource: "avengers.mp4", description: "will they make black widow action figures this time?" }
     ],
+    videotitle: "video title goes here",
+    videodescription:"videodescription goes here",
+    videosource: "",
+
 
     showDetails: false
   },
@@ -39,6 +43,16 @@ var vm = new Vue({
 
     setUserPrefs(){
       console.log('set User prefs via routing and probably a component');
+    },
+    //this is E56 data destructuring - pull the keys and values you need, not the entire object
+    loadMovie({name, description, vidsource}){
+      console.log('show movie details');
+
+      this.videotitle = name;
+      this.videodescription = description;
+      this.videosource = vidsource;
+
+      this.showDetails = true
     }
 
   }
